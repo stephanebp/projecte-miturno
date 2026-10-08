@@ -6,7 +6,7 @@
 
 ## Image
 
-![Sample chart](/static/home/users-graph.png)
+![Sample chart](/Img/fotoiker.jpg)
 
 #### Stephane
 
