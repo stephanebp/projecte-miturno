@@ -6,16 +6,16 @@
 
 ## Image
 
-![Sample chart](img/fotoiker.jpg)
+![Sample chart](img/fotoiker.png)
 
 #### Stephane
 
 ## Image
 
-![Sample chart](img/fotostephane.jpg)
+![Sample chart](img/fotostephane.png)
 
 #### Ivan
 
 ## Image
 
-![Sample chart](img/fotoivan.jpg)
+![Sample chart](img/fotoivan.png)
