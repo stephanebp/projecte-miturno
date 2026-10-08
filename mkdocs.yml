@@ -1,7 +1,8 @@
 site_name: Documentació del Projecte
 
 theme:
-  name: material
+  name: moonstone
 
 nav:
   - Inici: index.md
+  - Grup: grup.md
