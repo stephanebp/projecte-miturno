@@ -1,9 +1,9 @@
 # Projecte MiTurno
 
-### Participants:
+## Participants:
 
-#### Iker
-
+### Iker
+#### Soy Iker, estudiante de SMX en las salinas, especializado en redes,  y administración de sistemas.
 ![Sample chart](Img/fotoiker.png)
 
 #### Stephane
