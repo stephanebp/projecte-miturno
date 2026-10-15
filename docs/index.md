@@ -41,94 +41,7 @@ La solución propuesta es centralizar las reservas mediante una aplicación web.
 
 Los turnos del campo de golf comienzan en intervalos de 20 minutos. Las reservas del campo de prácticas se realizan por horas.
 
-## 5. Estructura del proyecto
-
-### Función de cada archivo
-
-- `index.html`: estructura y contenido de la página.
-- `style.css`: diseño, colores y adaptación a diferentes pantallas.
-- `script.js`: validación de formularios y gestión local de reservas.
-- `README.md`: documentación del proyecto.
-
-## 6. Instalación y ejecución
-
-1. Crear una carpeta llamada `club-golf`.
-2. Abrir la carpeta con Visual Studio Code.
-3. Crear los archivos `index.html`, `style.css`, `script.js` y `README.md`.
-4. Pegar el código correspondiente en cada archivo.
-5. Guardar todos los archivos.
-6. Abrir `index.html` en un navegador o utilizar la extensión Live Server.
-
-## 7. Tecnologías utilizadas
-
-### HTML5
-
-Se utiliza para crear la estructura de la aplicación, los formularios y las secciones informativas.
-
-### CSS3
-
-Se utiliza para definir los colores corporativos, las tarjetas, los botones, la distribución de contenidos y el diseño adaptable.
-
-### JavaScript
-
-Se utiliza para validar los datos, generar horarios, comprobar conflictos de reservas y guardar datos de demostración en el navegador.
-
-### Markdown
-
-Se utiliza para documentar el proyecto, explicar sus funcionalidades y facilitar su mantenimiento.
-
-## 8. Flujo de una reserva aceptada
-
-```text
-Cliente
-   |
-   v
-Abre la aplicación web
-   |
-   v
-Selecciona el servicio
-   |
-   v
-Introduce los datos
-   |
-   v
-El sistema valida la información
-   |
-   v
-Comprueba la disponibilidad
-   |
-   v
-¿Está disponible?
-   |
-   v
-Sí: registra la reserva
-   |
-   v
-Muestra el resultado
-```
-
-## 9. Flujo de una reserva rechazada
-
-```text
-Cliente selecciona una fecha y hora
-   |
-   v
-El sistema consulta las reservas
-   |
-   v
-Detecta un horario ocupado
-   |
-   v
-Informa al cliente
-   |
-   v
-Propone otra hora o casilla
-   |
-   v
-El cliente selecciona una alternativa
-```
-
-## 10. Gestión del equipamiento
+## 5. Gestión del equipamiento
 
 Durante el proceso de reserva, el cliente debe indicar una de estas opciones:
 
@@ -138,13 +51,13 @@ Durante el proceso de reserva, el cliente debe indicar una de estas opciones:
 
 Esta información permitirá al club planificar mejor la disponibilidad de equipamiento.
 
-## 11. Gestión de socios
+## 6. Gestión de socios
 
 Los socios podrán acceder a descuentos de acuerdo con las condiciones establecidas por el club.
 
 La versión inicial incluye un campo para indicar la condición de socio y aportar su acreditación. Para utilizarlo en producción, deberá integrarse un procedimiento seguro de verificación.
 
-## 12. Asistente virtual
+## 7. Asistente virtual
 
 La página incluye un asistente demostrativo que responde preguntas frecuentes sobre:
 
@@ -155,7 +68,7 @@ La página incluye un asistente demostrativo que responde preguntas frecuentes s
 
 Esta primera versión utiliza respuestas predefinidas. Para disponer de una inteligencia artificial real, será necesario conectarla a un servicio de IA mediante un servidor.
 
-## 13. Base de datos y seguridad
+## 8. Base de datos y seguridad
 
 La versión inicial almacena las reservas en el almacenamiento local del navegador.
 
@@ -172,9 +85,9 @@ Para una versión de producción se recomienda incorporar:
 - Gestión de cancelaciones y modificaciones.
 - Prevención de reservas simultáneas del mismo espacio.
 
-## 14. Conclusión
+## 9. Conclusión
 
-Green Club propone una solución digital para mejorar la organización de las reservas de un club de golf.
+Mi Turno propone una solución digital para mejorar la organización de las reservas de un club de golf.
 
 La aplicación permite centralizar las solicitudes, consultar horarios, gestionar las necesidades de material y reducir los conflictos entre clientes.
 
