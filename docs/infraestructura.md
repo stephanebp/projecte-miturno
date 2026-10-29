@@ -55,7 +55,7 @@ Hemos personalizado el nombre de la página web, establecido el español como id
 
 Añade aquí una captura de tu archivo `mkdocs.yml`, donde se vean las modificaciones realizadas.
 
-![Ejemplo de configuración](img/mkdocs-config.png)
+![Ejemplo de configuración](image-1.png)
 
 ---
 
@@ -133,7 +133,7 @@ Hemos configurado un proceso automatizado para que, cuando subamos cambios a la 
 
 Añade aquí una captura del archivo `deploy.yml` donde se vea el proceso de publicación automática.
 
-![Ejemplo de despliegue](img/deploy-config.png)
+![Ejemplo de despliegue](image-2.png)
 
 ---
 
