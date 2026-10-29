@@ -6,3 +6,37 @@ theme:
 nav:
   - Inici: index.md
   - Grup: grup.md
+
+site_name: Mi documentación
+
+theme:
+  name: material
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+    - navigation.tracking
+    - toc.integrate
+    - content.code.annotate
+    - content.code.copy
+    - content.code.expand
+    - content.code.highlight
+    - content.code.tabbed
+    - content.tabs.link
+    - content.tabs.sticky
+    - content.tabs.toggle
+    - content.tooltips
+    - content.footnotes
+    - content.footnotes.sticky
+    - content.footnotes.toggle
+    - content.footnotes.link
+    - content.footnotes.expand
+    - content.footnotes.copy
+    - content.footnotes.highlight
+    - content.footnotes.tabbed
+    - content.footnotes.annotate
+    - content.footnotes.share
+
