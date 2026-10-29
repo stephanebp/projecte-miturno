@@ -6,8 +6,9 @@ theme:
 nav:
   - Inici: index.md
   - Grup: grup.md
+  - Infraestructura: infraestructura.md
 
-site_name: Mi documentación
+site_name: MiTurno
 
 theme:
   name: material
