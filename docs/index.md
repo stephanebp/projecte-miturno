@@ -5,7 +5,7 @@
 
 ## 1. Descripción del proyecto
 
-mI tURNO es una aplicación web diseñada para facilitar la gestión de reservas de un club de golf.
+Mi Turno es una aplicación web diseñada para facilitar la gestión de reservas de un club de golf.
 
 El sistema permite a los clientes consultar horarios, reservar turnos, seleccionar casillas del campo de prácticas e indicar si necesitan alquilar equipamiento.
 
