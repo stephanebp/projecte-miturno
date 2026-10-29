@@ -39,4 +39,8 @@ theme:
     - content.footnotes.tabbed
     - content.footnotes.annotate
     - content.footnotes.share
+  
+  plugins:
+    - search
+    - mkdocs-material
 
