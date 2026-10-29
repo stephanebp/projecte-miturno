@@ -1,4 +1,3 @@
-# "MITURNO"
 ![alt text](image.png)
 ## Sistema de reservas online para un club de golf
 
