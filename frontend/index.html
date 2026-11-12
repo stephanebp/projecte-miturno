@@ -5,18 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Las Encinas | Club de Golf</title>
 
-<!-- Lucide Icons Plugin -->
-<script src="https://unpkg.com/lucide@latest"></script>
-<!-- Flatpickr Datepicker Plugin -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
-<!-- SweetAlert2 Plugin -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Leaflet Maps Plugin -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
@@ -39,9 +27,6 @@ body {
   font-family: 'DM Sans', sans-serif;
   color: var(--text);
   background: #f5f7f5;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 /* HEADER */
@@ -53,9 +38,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: relative;
+  z-index: 5;
   box-shadow: 0 2px 12px #0000000c;
 }
 
@@ -63,18 +47,16 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
 }
 
 .logo-icon {
+  font-size: 37px;
   color: var(--green);
-  display: flex;
-  align-items: center;
 }
 
 .logo h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 23px;
   letter-spacing: 1px;
   color: var(--dark-green);
 }
@@ -89,23 +71,16 @@ header {
 
 nav {
   display: flex;
-  gap: 32px;
+  gap: 35px;
   height: 100%;
   align-items: center;
 }
 
 nav a {
   text-decoration: none;
-  font-size: 13px;
+  font-size: 12px;
   color: #34443e;
-  padding: 23px 0;
-  cursor: pointer;
-  transition: color .2s;
-  border-bottom: 2px solid transparent;
-}
-
-nav a:hover {
-  color: var(--green);
+  padding: 25px 0;
 }
 
 nav a.active {
@@ -117,93 +92,60 @@ nav a.active {
 .hours {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 10px;
   border-left: 1px solid #d8dfda;
   padding-left: 15px;
 }
 
 .hours-icon {
+  font-size: 25px;
   color: var(--green);
-  display: flex;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--dark-green);
-  cursor: pointer;
 }
 
 /* HERO */
 
 .hero {
-  height: 220px;
+  height: 195px;
   background:
-    linear-gradient(90deg, rgba(20,44,28,.75), rgba(20,44,28,.3)),
+    linear-gradient(90deg, #142c1c66, #142c1c22),
     url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1800&q=85')
     center 52% / cover;
   position: relative;
-  display: flex;
-  align-items: center;
-  padding: 0 6%;
-  transition: background-image .4s ease;
-}
-
-.hero-content {
-  color: white;
-  max-width: 600px;
-  margin-top: -20px;
 }
 
 .hero-label {
-  font-size: 11px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  opacity: .9;
-  margin-bottom: 6px;
+  position: absolute;
+  top: 20px;
+  left: 6%;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-/* MAIN & SPA VIEWS */
+/* MAIN */
 
 main {
   max-width: 1250px;
-  width: 100%;
   margin: -45px auto 40px;
   padding: 0 25px;
   position: relative;
   z-index: 2;
-  flex: 1;
 }
 
-.view-section {
-  display: none;
-  animation: fadeIn .35s ease;
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.18fr;
+  gap: 16px;
 }
 
-.view-section.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* PANELS & CARDS */
+/* PANELS */
 
 .panel {
-  background: rgba(255,255,255,.98);
+  background: rgba(255,255,255,.97);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 25px;
+  padding: 23px;
   box-shadow: 0 5px 20px #203b3010;
   min-width: 0;
 }
@@ -211,180 +153,41 @@ main {
 .panel-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 6px;
+  gap: 13px;
+  margin-bottom: 5px;
 }
 
 .panel-icon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   background: var(--light-green);
   color: var(--green);
+  font-size: 17px;
 }
 
 .panel-header h2 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
 }
 
 .subtitle {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--muted);
   margin-bottom: 20px;
 }
 
-/* GRID LAYOUTS */
-
-.content-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.18fr;
-  gap: 18px;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-/* INICIO (HOME) */
-
-.welcome-banner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 20px;
-}
-
-.welcome-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  color: var(--dark-green);
-  margin-bottom: 10px;
-}
-
-.welcome-text p {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #4f615b;
-  margin-bottom: 18px;
-}
-
-.feature-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 22px;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.feature-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px #203b3014;
-}
-
-.feature-card h3 {
-  font-size: 15px;
-  margin: 12px 0 8px;
-  color: var(--dark-green);
-}
-
-.feature-card p {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #5b6d67;
-}
-
-/* EL CLUB */
-
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-bottom: 22px;
-}
-
-.stat-box {
-  background: var(--light-green);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-}
-
-.stat-box strong {
-  display: block;
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  color: var(--green);
-}
-
-.stat-box span {
-  font-size: 11px;
-  color: var(--dark-green);
-  font-weight: 500;
-}
-
-.club-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.gallery-item {
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: white;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 165px;
-  object-fit: cover;
-  display: block;
-}
-
-.gallery-caption {
-  padding: 12px;
-}
-
-.gallery-caption h4 {
-  font-size: 13px;
-  margin-bottom: 4px;
-}
-
-.gallery-caption p {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-/* FORM & INPUTS */
+/* FORM */
 
 .form-group {
   margin-bottom: 13px;
 }
 
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
 label {
   display: block;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   margin-bottom: 6px;
 }
@@ -393,9 +196,9 @@ input, select, textarea {
   width: 100%;
   border: 1px solid #dce4e0;
   border-radius: 6px;
-  padding: 10px 12px;
+  padding: 11px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 11px;
   outline: none;
   color: var(--text);
   background: white;
@@ -405,6 +208,10 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
   border-color: var(--green);
   box-shadow: 0 0 0 3px #285b4b12;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #a2aaa6;
 }
 
 textarea {
@@ -418,16 +225,12 @@ textarea {
   color: white;
   border: none;
   border-radius: 7px;
-  padding: 12px 18px;
+  padding: 13px;
   font-family: inherit;
   font-weight: 600;
   font-size: 12px;
   cursor: pointer;
   transition: .2s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 }
 
 .primary-btn:hover {
@@ -435,16 +238,12 @@ textarea {
   transform: translateY(-1px);
 }
 
-.btn-auto {
-  width: auto;
-}
-
 /* CHAT */
 
 .chat-panel {
   display: flex;
   flex-direction: column;
-  min-height: 540px;
+  min-height: 530px;
   padding: 20px;
 }
 
@@ -453,7 +252,7 @@ textarea {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #edf0ee;
-  padding-bottom: 14px;
+  padding-bottom: 15px;
 }
 
 .bot-info {
@@ -463,13 +262,13 @@ textarea {
 }
 
 .bot-avatar {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: var(--light-green);
-  color: var(--green);
   display: grid;
   place-items: center;
+  font-size: 19px;
 }
 
 .bot-info h3 {
@@ -479,31 +278,30 @@ textarea {
 .bot-info p {
   color: var(--muted);
   font-size: 10px;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .online {
-  font-size: 10px;
+  font-size: 9px;
   color: #369b70;
-  font-weight: 600;
 }
 
 .messages {
   flex: 1;
   overflow-y: auto;
-  padding: 16px 4px;
+  padding: 17px 0;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  min-height: 320px;
-  max-height: 400px;
+  min-height: 300px;
+  max-height: 390px;
 }
 
 .message {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  max-width: 88%;
+  max-width: 90%;
 }
 
 .message.user {
@@ -512,23 +310,23 @@ textarea {
 }
 
 .message-avatar {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
   border-radius: 50%;
   background: var(--light-green);
-  color: var(--green);
   display: grid;
   place-items: center;
+  font-size: 13px;
 }
 
 .bubble {
-  padding: 11px 14px;
+  padding: 12px 14px;
   border-radius: 12px;
   background: #f0f4f2;
-  font-size: 12px;
-  line-height: 1.55;
-  color: #3d4d47;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #53635c;
 }
 
 .message.user .bubble {
@@ -538,32 +336,9 @@ textarea {
 }
 
 .time {
-  font-size: 9px;
+  font-size: 8px;
   color: #a4aca8;
-  margin-top: 4px;
-}
-
-.quick-replies {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding-bottom: 10px;
-}
-
-.chip {
-  background: var(--light-green);
-  color: var(--green);
-  border: 1px solid #cde0d7;
-  border-radius: 16px;
-  padding: 5px 11px;
-  font-size: 11px;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.chip:hover {
-  background: var(--green);
-  color: white;
+  margin-top: 5px;
 }
 
 .chat-input {
@@ -576,6 +351,7 @@ textarea {
 
 .chat-input input {
   flex: 1;
+  padding: 12px;
 }
 
 .send-btn {
@@ -586,95 +362,68 @@ textarea {
   background: var(--green);
   color: white;
   cursor: pointer;
-  display: grid;
-  place-items: center;
+  font-size: 16px;
 }
 
 .send-btn:hover {
   background: var(--dark-green);
 }
 
-/* CONTACTO & MAPA */
-
-#clubMap {
-  height: 260px;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  margin-top: 15px;
-  z-index: 1;
-}
-
-.contact-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-.contact-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.contact-list i {
-  color: var(--green);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
 footer {
   text-align: center;
-  padding: 22px;
+  padding: 20px;
   color: #84918a;
-  font-size: 11px;
-  border-top: 1px solid #e6ece9;
-  background: white;
+  font-size: 10px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 860px) {
-  .content-grid, .grid-3, .grid-2, .club-gallery {
-    grid-template-columns: 1fr;
+@media(max-width: 800px) {
+  header {
+    padding: 0 18px;
   }
-  .stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .welcome-banner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+
   nav {
     display: none;
-    position: absolute;
-    top: 68px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    height: auto;
-    padding: 10px 5%;
-    gap: 0;
-    box-shadow: 0 8px 16px #00000012;
   }
-  nav.open {
-    display: flex;
-  }
-  nav a {
-    padding: 14px 0;
-    border-bottom: 1px solid #f0f3f1;
-    width: 100%;
-  }
-  .mobile-menu-btn {
-    display: block;
-  }
+
   .hours {
+    font-size: 9px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    margin-top: -35px;
+    padding: 0 14px;
+  }
+
+  .hero {
+    height: 160px;
+  }
+}
+
+@media(max-width: 450px) {
+  .logo h1 {
+    font-size: 17px;
+  }
+
+  .logo-icon {
+    font-size: 28px;
+  }
+
+  .hours-icon {
     display: none;
+  }
+
+  .hours {
+    padding-left: 8px;
+  }
+
+  .panel {
+    padding: 17px;
   }
 }
 </style>
@@ -683,309 +432,136 @@ footer {
 <body>
 
 <header>
-  <div class="logo" onclick="navigateTo('inicio')">
-    <div class="logo-icon"><i data-lucide="trees" width="32" height="32"></i></div>
+  <div class="logo">
+    <div class="logo-icon">🌳</div>
     <div>
       <h1>LAS ENCINAS</h1>
       <span>CLUB DE GOLF</span>
     </div>
   </div>
 
-  <nav id="mainNav">
-    <a data-route="inicio" onclick="navigateTo('inicio')">Inicio</a>
-    <a data-route="reservas" class="active" onclick="navigateTo('reservas')">Reservas</a>
-    <a data-route="club" onclick="navigateTo('club')">El Club</a>
-    <a data-route="contacto" onclick="navigateTo('contacto')">Contacto</a>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#reservas" class="active">Reservas</a>
+    <a href="#">El Club</a>
+    <a href="#">Contacto</a>
   </nav>
 
   <div class="hours">
-    <div class="hours-icon"><i data-lucide="clock" width="22" height="22"></i></div>
+    <div class="hours-icon">◷</div>
     <div>
       <strong>Horario de apertura</strong><br>
       Martes a sábado: 9:00 - 20:00<br>
       Domingos y festivos: 9:00 - 20:00
     </div>
   </div>
-
-  <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menú">
-    <i data-lucide="menu" width="26" height="26"></i>
-  </button>
 </header>
 
-<section class="hero" id="heroBanner">
-  <div class="hero-content">
-    <div class="hero-label" id="heroLabel">RESERVA TU HORA</div>
-    <h2 class="hero-title" id="heroTitle">Salidas al campo y asistencia inmediata</h2>
-  </div>
+<section class="hero">
+  <div class="hero-label">RESERVA TU HORA</div>
 </section>
 
 <main>
+  <div class="content">
 
-  <!-- ================= SECCIÓN: INICIO ================= -->
-  <section id="view-inicio" class="view-section">
-    <div class="panel welcome-banner">
-      <div class="welcome-text">
-        <h2>Bienvenido a Las Encinas Club de Golf</h2>
-        <p>
-          Un recorrido técnico de 18 hoyos rodeado de encinas centenarias y naturaleza mediterránea.
-          Disfruta de instalaciones de primer nivel, escuela de golf para todos los niveles y un entorno exclusivo pensado para los amantes de este deporte.
-        </p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <button class="primary-btn btn-auto" onclick="navigateTo('reservas')">
-            <i data-lucide="calendar-check" width="16" height="16"></i> Reservar Tee Time
-          </button>
-          <button class="primary-btn btn-auto" style="background:var(--light-green); color:var(--green);" onclick="navigateTo('club')">
-            <i data-lucide="compass" width="16" height="16"></i> Conocer el recorrido
-          </button>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=600&q=80"
-           alt="Campo de Golf" style="width:320px; max-width:100%; border-radius:10px; object-fit:cover;">
-    </div>
+    <!-- FORMULARIO -->
+    <section class="panel" id="reservas">
 
-    <div class="grid-3">
-      <div class="feature-card">
-        <div class="panel-icon"><i data-lucide="flag" width="18" height="18"></i></div>
-        <h3>Campo de 18 Hoyos · Par 72</h3>
-        <p>Diseñado para desafiar tanto a jugadores experimentados como a amateurs, con greens rápidos y calles amplias.</p>
-      </div>
-      <div class="feature-card">
-        <div class="panel-icon"><i data-lucide="award" width="18" height="18"></i></div>
-        <h3>Academia & Fitting</h3>
-        <p>Clases individuales y grupales impartidas por profesionales titulados, además de zona de prácticas iluminada.</p>
-      </div>
-      <div class="feature-card">
-        <div class="panel-icon"><i data-lucide="utensils" width="18" height="18"></i></div>
-        <h3>Casa Club & Restaurante</h3>
-        <p>Terraza panorámica con vistas al hoyo 18, gastronomía local de temporada y salones privados para eventos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECCIÓN: RESERVAS ================= -->
-  <section id="view-reservas" class="view-section active">
-    <div class="content-grid">
-
-      <!-- FORMULARIO CON FLATPICKR Y SWEETALERT2 -->
-      <div class="panel" id="reservas">
-        <div class="panel-header">
-          <div class="panel-icon"><i data-lucide="calendar-plus" width="17" height="17"></i></div>
-          <h2>Datos de reserva</h2>
-        </div>
-        <p class="subtitle">Selecciona fecha, hora y completa tus datos para confirmar tu salida.</p>
-
-        <form id="reservationForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Fecha de juego *</label>
-              <input id="playDate" type="text" placeholder="Selecciona fecha..." required>
-            </div>
-            <div class="form-group">
-              <label>Hora de salida *</label>
-              <select id="playTime" required>
-                <option value="09:30">09:30 h</option>
-                <option value="10:30">10:30 h</option>
-                <option value="11:30">11:30 h</option>
-                <option value="13:00">13:00 h</option>
-                <option value="16:00">16:00 h</option>
-                <option value="17:30">17:30 h</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Nombre completo *</label>
-            <input id="name" type="text" placeholder="Ej. Juan Pérez" required>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label>Teléfono *</label>
-              <input id="phone" type="tel" placeholder="Ej. 600 123 456" required>
-            </div>
-            <div class="form-group">
-              <label>Número de jugadores *</label>
-              <select id="players" required>
-                <option value="1">1 jugador</option>
-                <option value="2">2 jugadores</option>
-                <option value="3">3 jugadores</option>
-                <option value="4">4 jugadores</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Correo electrónico *</label>
-            <input id="email" type="email" placeholder="Ej. juan@correo.com" required>
-          </div>
-
-          <div class="form-group">
-            <label>Preferencias (buggy, alquiler de palos, etc.)</label>
-            <textarea id="notes" placeholder="Indica si necesitas buggy eléctrico o juego de palos..."></textarea>
-          </div>
-
-          <button class="primary-btn" type="submit">
-            <i data-lucide="send" width="15" height="15"></i> Confirmar solicitud de reserva
-          </button>
-        </form>
-      </div>
-
-      <!-- CHATBOT INTERACTIVO -->
-      <div class="panel chat-panel">
-        <div class="chat-header">
-          <div class="bot-info">
-            <div class="bot-avatar"><i data-lucide="bot" width="20" height="20"></i></div>
-            <div>
-              <h3>Asistente IA de Las Encinas</h3>
-              <p>Consulta disponibilidad, tarifas y servicios en tiempo real.</p>
-            </div>
-          </div>
-          <div class="online">● En línea</div>
-        </div>
-
-        <div class="messages" id="messages">
-          <div class="message">
-            <div class="message-avatar"><i data-lucide="bot" width="15" height="15"></i></div>
-            <div>
-              <div class="bubble">
-                ¡Hola! Soy el asistente virtual de Las Encinas Club de Golf.
-                Puedo ayudarte a reservar tu hora de juego o resolver dudas sobre tarifas y alquiler de material.
-              </div>
-              <div class="time">Ahora</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="quick-replies">
-          <button type="button" class="chip" onclick="sendQuickReply('¿Cuáles son las tarifas de Green Fee?')">Tarifas Green Fee</button>
-          <button type="button" class="chip" onclick="sendQuickReply('¿Tenéis alquiler de buggies?')">Alquiler de buggies</button>
-          <button type="button" class="chip" onclick="sendQuickReply('¿Cuál es el horario del club?')">Horarios</button>
-        </div>
-
-        <div class="chat-input">
-          <input type="text" id="chatMessage" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter')sendMessage()">
-          <button class="send-btn" onclick="sendMessage()" aria-label="Enviar">
-            <i data-lucide="arrow-up" width="18" height="18"></i>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= SECCIÓN: EL CLUB ================= -->
-  <section id="view-club" class="view-section">
-    <div class="panel">
       <div class="panel-header">
-        <div class="panel-icon"><i data-lucide="trophy" width="17" height="17"></i></div>
-        <h2>Historia e Instalaciones</h2>
-      </div>
-      <p class="subtitle">Fundado en 1994, un referente del golf sostenible y familiar.</p>
-
-      <div class="stats-bar">
-        <div class="stat-box"><strong>18</strong><span>Hoyos · Par 72</span></div>
-        <div class="stat-box"><strong>6.340 m</strong><span>Recorrido Campeonato</span></div>
-        <div class="stat-box"><strong>45</strong><span>Puestos de Prácticas</span></div>
-        <div class="stat-box"><strong>+850</strong><span>Socios Activos</span></div>
+        <div class="panel-icon">♙</div>
+        <h2>Datos de contacto</h2>
       </div>
 
-      <p style="font-size:13px; line-height:1.7; color:#4f615b;">
-        El recorrido de Las Encinas destaca por su integración respetuosa con el bosque autóctono. Sus fairways ondulados,
-        protegidos por bunkers estratégicos y tres lagos naturales, exigen precisión desde el tee de salida y ofrecen una experiencia memorable en cada vuelta.
+      <p class="subtitle">
+        Completa tus datos para que podamos gestionar tu reserva.
       </p>
 
-      <div class="club-gallery">
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=600&q=80" alt="Hoyo 18">
-          <div class="gallery-caption">
-            <h4>Hoyo 18 · Par 5 Emblemático</h4>
-            <p>Green en península frente a la terraza de la Casa Club.</p>
+      <form id="reservationForm">
+
+        <div class="form-group">
+          <label>Nombre completo *</label>
+          <input id="name" type="text"
+            placeholder="Ej. Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono *</label>
+          <input id="phone" type="tel"
+            placeholder="Ej. 600 123 456" required>
+        </div>
+
+        <div class="form-group">
+          <label>Correo electrónico *</label>
+          <input id="email" type="email"
+            placeholder="Ej. juan@correo.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Número de jugadores *</label>
+          <select id="players" required>
+            <option value="1">1 jugador</option>
+            <option value="2">2 jugadores</option>
+            <option value="3">3 jugadores</option>
+            <option value="4">4 jugadores</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Mensaje (opcional)</label>
+          <textarea id="notes"
+            placeholder="Indica cualquier preferencia o comentario..."></textarea>
+        </div>
+
+        <button class="primary-btn" type="submit">
+          ➤ &nbsp; Comenzar reserva
+        </button>
+
+      </form>
+    </section>
+
+    <!-- CHATBOT -->
+    <section class="panel chat-panel">
+
+      <div class="chat-header">
+        <div class="bot-info">
+          <div class="bot-avatar">🤖</div>
+          <div>
+            <h3>Asistente IA de Las Encinas</h3>
+            <p>Te ayudo a reservar tu hora de golf. Cuéntame qué necesitas.</p>
           </div>
         </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1591491653056-4e9d563a4b7d?auto=format&fit=crop&w=600&q=80" alt="Zona de prácticas">
-          <div class="gallery-caption">
-            <h4>Driving Range & Putting Green</h4>
-            <p>Zona de aproximación de 1.200 m² con tecnología Toptracer.</p>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=600&q=80" alt="Casa Club">
-          <div class="gallery-caption">
-            <h4>Casa Club & Pro-Shop</h4>
-            <p>Vestuarios privados, tienda oficial y restaurante panorámico.</p>
-          </div>
-        </div>
+        <div class="online">● En línea</div>
       </div>
-    </div>
-  </section>
 
-  <!-- ================= SECCIÓN: CONTACTO ================= -->
-  <section id="view-contacto" class="view-section">
-    <div class="grid-2">
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-icon"><i data-lucide="map-pin" width="17" height="17"></i></div>
-          <h2>Dónde estamos</h2>
+      <div class="messages" id="messages">
+
+        <div class="message">
+          <div class="message-avatar">🤖</div>
+          <div>
+            <div class="bubble">
+              ¡Hola! Soy el asistente virtual de Las Encinas Club de Golf.
+              Puedo ayudarte a reservar tu hora de juego.
+              ¿En qué fecha te gustaría jugar?
+            </div>
+            <div class="time">Ahora</div>
+          </div>
         </div>
-        <p class="subtitle">A solo 20 minutos del centro, con acceso directo y parking privado.</p>
 
-        <ul class="contact-list">
-          <li>
-            <i data-lucide="navigation" width="18" height="18"></i>
-            <div><strong>Dirección:</strong><br>Camino de las Encinas, Km 4.5 · 28223 Pozuelo / Madrid</div>
-          </li>
-          <li>
-            <i data-lucide="phone" width="18" height="18"></i>
-            <div><strong>Recepción y Caddie Master:</strong><br>+34 910 555 820</div>
-          </li>
-          <li>
-            <i data-lucide="mail" width="18" height="18"></i>
-            <div><strong>Correo electrónico:</strong><br>reservas@lasencinasgolf.es</div>
-          </li>
-        </ul>
-
-        <!-- Mapa Interactivo Leaflet Plugin -->
-        <div id="clubMap"></div>
       </div>
 
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-icon"><i data-lucide="message-square" width="17" height="17"></i></div>
-          <h2>Envíanos una consulta</h2>
-        </div>
-        <p class="subtitle">¿Dudas sobre abonos, torneos o eventos corporativos? Escríbenos.</p>
+      <div class="chat-input">
+        <input type="text" id="chatMessage"
+          placeholder="Escribe tu mensaje..."
+          onkeydown="if(event.key==='Enter')sendMessage()">
 
-        <form id="contactForm">
-          <div class="form-group">
-            <label>Nombre y apellidos *</label>
-            <input type="text" id="contactName" placeholder="Tu nombre" required>
-          </div>
-          <div class="form-group">
-            <label>Correo electrónico *</label>
-            <input type="email" id="contactEmail" placeholder="tu@email.com" required>
-          </div>
-          <div class="form-group">
-            <label>Asunto *</label>
-            <select id="contactSubject">
-              <option value="Información general">Información general</option>
-              <option value="Abonos y socios">Abonos y tarifas de socios</option>
-              <option value="Torneos y eventos">Torneos y eventos de empresa</option>
-              <option value="Escuela de golf">Clases y escuela de golf</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Mensaje *</label>
-            <textarea id="contactMsg" placeholder="¿En qué podemos ayudarte?" required></textarea>
-          </div>
-          <button type="submit" class="primary-btn">
-            <i data-lucide="mail-check" width="16" height="16"></i> Enviar mensaje
-          </button>
-        </form>
+        <button class="send-btn" onclick="sendMessage()">
+          ➤
+        </button>
       </div>
-    </div>
-  </section>
 
+    </section>
+
+  </div>
 </main>
 
 <footer>
@@ -993,142 +569,28 @@ footer {
 </footer>
 
 <script>
-// 1. Inicializar Iconos Lucide
-lucide.createIcons();
 
-// 2. Inicializar Selector de Fecha Flatpickr (bloquea lunes por descanso semanal)
-flatpickr("#playDate", {
-  locale: "es",
-  minDate: "today",
-  dateFormat: "d/m/Y",
-  defaultDate: new Date().fp_incr(1),
-  disable: [
-    function(date) {
-      return (date.getDay() === 1); // Lunes cerrado
-    }
-  ]
-});
+// FORMULARIO DE RESERVA
 
-// 3. Inicializar Mapa Interactivo Leaflet
-let mapInitialized = false;
-let clubMap;
-
-function initMap() {
-  if (mapInitialized) {
-    setTimeout(() => clubMap.invalidateSize(), 200);
-    return;
-  }
-  const coords = [40.435, -3.815];
-  clubMap = L.map('clubMap').setView(coords, 14);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap'
-  }).addTo(clubMap);
-
-  L.marker(coords).addTo(clubMap)
-    .bindPopup('<b>Las Encinas Club de Golf</b><br>Casa Club y Recepción')
-    .openPopup();
-  mapInitialized = true;
-}
-
-// 4. Sistema de Navegación SPA (Inicio, Reservas, El Club, Contacto)
-const heroConfigs = {
-  inicio: {
-    label: 'BIENVENIDOS AL CLUB',
-    title: 'Naturaleza, tradición y pasión por el golf',
-    img: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1800&q=85'
-  },
-  reservas: {
-    label: 'RESERVA TU HORA',
-    title: 'Salidas al campo y asistencia inmediata',
-    img: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1800&q=85'
-  },
-  club: {
-    label: 'EL RECORRIDO',
-    title: '18 hoyos integrados en un bosque centenario',
-    img: 'https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=1800&q=85'
-  },
-  contacto: {
-    label: 'ATENCIÓN AL JUGADOR',
-    title: 'Ubicación, horarios y contacto directo',
-    img: 'https://images.unsplash.com/photo-1591491653056-4e9d563a4b7d?auto=format&fit=crop&w=1800&q=85'
-  }
-};
-
-function navigateTo(route) {
-  // Actualizar pestañas activas
-  document.querySelectorAll('nav a').forEach(link => {
-    link.classList.toggle('active', link.dataset.route === route);
-  });
-
-  // Mostrar sección correspondiente
-  document.querySelectorAll('.view-section').forEach(sec => {
-    sec.classList.remove('active');
-  });
-  document.getElementById('view-' + route).classList.add('active');
-
-  // Actualizar Hero
-  const cfg = heroConfigs[route];
-  document.getElementById('heroLabel').textContent = cfg.label;
-  document.getElementById('heroTitle').textContent = cfg.title;
-  document.getElementById('heroBanner').style.backgroundImage =
-    `linear-gradient(90deg, rgba(20,44,28,.75), rgba(20,44,28,.3)), url('${cfg.img}')`;
-
-  // Cerrar menú móvil si está abierto
-  document.getElementById('mainNav').classList.remove('open');
-
-  // Renderizar mapa si entramos a Contacto
-  if (route === 'contacto') {
-    initMap();
-  }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function toggleMobileMenu() {
-  document.getElementById('mainNav').classList.toggle('open');
-}
-
-// 5. Formulario de Reserva con SweetAlert2 + Integración al Chat
-document.getElementById('reservationForm').addEventListener('submit', function(e) {
+document.getElementById('reservationForm')
+.addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const date = document.getElementById('playDate').value;
-  const time = document.getElementById('playTime').value;
   const name = document.getElementById('name').value;
   const phone = document.getElementById('phone').value;
   const email = document.getElementById('email').value;
   const players = document.getElementById('players').value;
   const notes = document.getElementById('notes').value;
 
-  Swal.fire({
-    icon: 'success',
-    title: '¡Solicitud registrada!',
-    html: `Hemos enviado los detalles de tu salida para el <b>${date} a las ${time} h</b> (${players} jugador/es) al asistente virtual para su confirmación.`,
-    confirmButtonColor: '#285b4b',
-    confirmButtonText: 'Continuar en el chat'
-  });
-
   addMessage(
-    `He recibido tu solicitud de reserva a nombre de ${name} para el día ${date} a las ${time} h (${players} jugador/es). Contacto: ${phone} / ${email}. ${notes ? 'Observaciones: ' + notes + '.' : ''} Tu Tee Time ha quedado pre-reservado.`
+    `Perfecto, ${name}. He recibido tus datos para una reserva de ${players} jugador(es). Indicaste el teléfono ${phone} y el correo ${email}. ${notes ? 'Comentario: ' + notes : ''} Para confirmar la reserva necesitamos comprobar la disponibilidad.`
   );
+
+  document.getElementById('chatMessage').focus();
 });
 
-// 6. Formulario de Contacto con SweetAlert2
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const cName = document.getElementById('contactName').value;
-  const cSubj = document.getElementById('contactSubject').value;
+// CHAT
 
-  Swal.fire({
-    icon: 'success',
-    title: 'Mensaje enviado',
-    text: `Gracias ${cName}, nuestro equipo de recepción responderá a tu consulta sobre "${cSubj}" en menos de 24 horas.`,
-    confirmButtonColor: '#285b4b'
-  });
-  this.reset();
-});
-
-// 7. Chatbot Interactivo
 function addMessage(text, user = false) {
   const messages = document.getElementById('messages');
 
@@ -1137,9 +599,7 @@ function addMessage(text, user = false) {
 
   const avatar = document.createElement('div');
   avatar.className = 'message-avatar';
-  avatar.innerHTML = user
-    ? '<i data-lucide="user" width="15" height="15"></i>'
-    : '<i data-lucide="bot" width="15" height="15"></i>';
+  avatar.textContent = user ? '👤' : '🤖';
 
   const wrapper = document.createElement('div');
   const bubble = document.createElement('div');
@@ -1159,18 +619,13 @@ function addMessage(text, user = false) {
   message.appendChild(wrapper);
 
   messages.appendChild(message);
-  lucide.createIcons();
   messages.scrollTop = messages.scrollHeight;
-}
-
-function sendQuickReply(text) {
-  document.getElementById('chatMessage').value = text;
-  sendMessage();
 }
 
 function sendMessage() {
   const input = document.getElementById('chatMessage');
   const text = input.value.trim();
+
   if (!text) return;
 
   addMessage(text, true);
@@ -1181,24 +636,25 @@ function sendMessage() {
     let answer = '';
 
     if (msg.includes('hola') || msg.includes('buenas')) {
-      answer = '¡Hola! Bienvenido a Las Encinas Club de Golf. ¿En qué puedo ayudarte hoy?';
-    } else if (msg.includes('tarifa') || msg.includes('precio') || msg.includes('green fee') || msg.includes('cuánto')) {
-      answer = 'El Green Fee de 18 hoyos es de 55 € de martes a viernes y 75 € los fines de semana y festivos. También disponemos de tarifas twilight a partir de las 16:00 h por 38 €.';
-    } else if (msg.includes('buggy') || msg.includes('buggies') || msg.includes('alquiler') || msg.includes('palos')) {
-      answer = 'Disponemos de buggies eléctricos con GPS por 32 € (18 hoyos) y alquiler de juegos completos TaylorMade por 25 €. Puedes indicarlo en el campo de preferencias del formulario.';
-    } else if (msg.includes('horario') || msg.includes('abierto') || msg.includes('lunes')) {
-      answer = 'Abrimos de martes a domingo (y festivos) de 9:00 a 20:00 h. Los lunes permanecemos cerrados por mantenimiento del campo.';
+      answer = '¡Hola! Bienvenido a Las Encinas Club de Golf. ¿En qué puedo ayudarte?';
     } else if (msg.includes('reserva') || msg.includes('reservar')) {
-      answer = 'Puedes seleccionar directamente el día y la hora en el formulario de la izquierda y pulsar en "Confirmar solicitud de reserva".';
+      answer = '¡Por supuesto! Para gestionar tu reserva necesito conocer la fecha, la hora y el número de jugadores.';
+    } else if (msg.includes('precio') || msg.includes('cuánto') || msg.includes('tarifa')) {
+      answer = 'Estaremos encantados de informarte sobre nuestras tarifas. Para conocer los precios actualizados, contacta con nuestro equipo de recepción.';
+    } else if (msg.includes('horario') || msg.includes('abierto')) {
+      answer = 'Nuestro horario habitual es de martes a sábado de 9:00 a 20:00, y domingos y festivos de 9:00 a 20:00.';
+    } else if (msg.includes('jugadores')) {
+      answer = 'Puedes realizar reservas para grupos de entre 1 y 4 jugadores desde el formulario.';
     } else if (msg.includes('gracias')) {
-      answer = '¡Un placer ayudarte! Te esperamos en el tee del 1 en Las Encinas Club de Golf.';
+      answer = '¡Gracias a ti! Será un placer recibirte en Las Encinas Club de Golf.';
     } else {
-      answer = 'Entendido. Si deseas confirmar una hora de salida, selecciona fecha y hora en el formulario de la izquierda o dime qué información necesitas sobre el club.';
+      answer = '¡Perfecto! Cuéntame un poco más y te ayudaré con tu reserva. También puedes rellenar el formulario de contacto para facilitarnos tus datos.';
     }
 
     addMessage(answer);
-  }, 550);
+  }, 700);
 }
+
 </script>
 
 </body>
