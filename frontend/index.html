@@ -30,14 +30,15 @@ body {
   background: #f5f7f5;
 }
 
-/* HEADER */
+/* CABECERA */
+
 header {
-  min-height: 68px;
+  height: 68px;
   background: rgba(255,255,255,.97);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 5%;
+  padding: 0 5%;
   position: relative;
   z-index: 5;
   box-shadow: 0 2px 12px #0000000c;
@@ -72,6 +73,7 @@ header {
 nav {
   display: flex;
   gap: 35px;
+  height: 100%;
   align-items: center;
 }
 
@@ -102,7 +104,8 @@ nav a.active {
   color: var(--green);
 }
 
-/* HERO */
+/* IMAGEN PRINCIPAL */
+
 .hero {
   height: 195px;
   background:
@@ -121,7 +124,8 @@ nav a.active {
   letter-spacing: 2px;
 }
 
-/* MAIN */
+/* CONTENIDO */
+
 main {
   max-width: 1250px;
   margin: -45px auto 40px;
@@ -136,7 +140,6 @@ main {
   gap: 16px;
 }
 
-/* PANELS */
 .panel {
   background: rgba(255,255,255,.97);
   border: 1px solid var(--border);
@@ -175,7 +178,8 @@ main {
   margin-bottom: 20px;
 }
 
-/* FORM */
+/* FORMULARIO */
+
 .form-group {
   margin-bottom: 13px;
 }
@@ -234,6 +238,7 @@ textarea {
 }
 
 /* CHAT */
+
 .chat-panel {
   display: flex;
   flex-direction: column;
@@ -363,7 +368,8 @@ textarea {
   background: var(--dark-green);
 }
 
-/* RESERVAS */
+/* INFORMACIÓN DE RESERVAS */
+
 .booking-panel {
   margin-top: 18px;
 }
@@ -396,16 +402,6 @@ textarea {
   margin-bottom: 13px;
 }
 
-.booking-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.booking-fields .form-group {
-  margin-bottom: 12px;
-}
-
 .booking-table-wrap {
   overflow-x: auto;
   margin-top: 18px;
@@ -417,7 +413,8 @@ textarea {
   font-size: 11px;
 }
 
-.booking-table th, .booking-table td {
+.booking-table th,
+.booking-table td {
   padding: 11px 12px;
   text-align: left;
   border-bottom: 1px solid var(--border);
@@ -447,17 +444,7 @@ textarea {
   line-height: 1.6;
 }
 
-.booking-submit {
-  margin-top: 15px;
-}
-
-.booking-status {
-  margin-top: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--green);
-  min-height: 16px;
-}
+/* FOOTER */
 
 footer {
   text-align: center;
@@ -466,10 +453,11 @@ footer {
   font-size: 10px;
 }
 
-/* RESPONSIVE */
+/* DISEÑO RESPONSIVE */
+
 @media(max-width: 800px) {
   header {
-    padding: 10px 18px;
+    padding: 0 18px;
   }
 
   nav {
@@ -484,6 +472,10 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+
   main {
     margin-top: -35px;
     padding: 0 14px;
@@ -491,10 +483,6 @@ footer {
 
   .hero {
     height: 160px;
-  }
-
-  .booking-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -519,20 +507,19 @@ footer {
     padding: 17px;
   }
 
-  .booking-fields {
-    grid-template-columns: 1fr;
-  }
-
-  .booking-table th, .booking-table td {
+  .booking-table th,
+  .booking-table td {
     padding: 9px 8px;
   }
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
   <div class="logo">
     <div class="logo-icon">🌳</div>
     <div>
@@ -556,6 +543,7 @@ footer {
       Domingos y festivos: 9:00 - 20:00
     </div>
   </div>
+
 </header>
 
 <section class="hero">
@@ -582,17 +570,20 @@ footer {
 
         <div class="form-group">
           <label>Nombre completo *</label>
-          <input id="name" type="text" placeholder="Ej. Juan Pérez" required>
+          <input id="name" type="text"
+            placeholder="Ej. Juan Pérez" required>
         </div>
 
         <div class="form-group">
           <label>Teléfono *</label>
-          <input id="phone" type="tel" placeholder="Ej. 600 123 456" required>
+          <input id="phone" type="tel"
+            placeholder="Ej. 600 123 456" required>
         </div>
 
         <div class="form-group">
           <label>Correo electrónico *</label>
-          <input id="email" type="email" placeholder="Ej. juan@correo.com" required>
+          <input id="email" type="email"
+            placeholder="Ej. juan@correo.com" required>
         </div>
 
         <div class="form-group">
@@ -607,7 +598,8 @@ footer {
 
         <div class="form-group">
           <label>Mensaje (opcional)</label>
-          <textarea id="notes" placeholder="Indica cualquier preferencia o comentario..."></textarea>
+          <textarea id="notes"
+            placeholder="Indica cualquier preferencia o comentario..."></textarea>
         </div>
 
         <button class="primary-btn" type="submit">
@@ -621,6 +613,7 @@ footer {
     <section class="panel chat-panel">
 
       <div class="chat-header">
+
         <div class="bot-info">
           <div class="bot-avatar">🤖</div>
           <div>
@@ -628,10 +621,13 @@ footer {
             <p>Te ayudo a reservar tu hora de golf. Cuéntame qué necesitas.</p>
           </div>
         </div>
+
         <div class="online">● En línea</div>
+
       </div>
 
       <div class="messages" id="messages">
+
         <div class="message">
           <div class="message-avatar">🤖</div>
           <div>
@@ -643,136 +639,107 @@ footer {
             <div class="time">Ahora</div>
           </div>
         </div>
+
       </div>
 
       <div class="chat-input">
+
         <input type="text" id="chatMessage"
           placeholder="Escribe tu mensaje..."
           onkeydown="if(event.key==='Enter')sendMessage()">
 
         <button class="send-btn" onclick="sendMessage()">➤</button>
+
       </div>
 
     </section>
 
   </div>
 
-  <!-- APARTADO DE RESERVAS -->
+  <!-- INFORMACIÓN DE RESERVAS -->
   <section class="panel booking-panel" id="horarios-reserva">
 
     <div class="panel-header">
       <div class="panel-icon">📅</div>
-      <h2>Selecciona tu reserva</h2>
+      <h2>Información de reservas y horarios</h2>
     </div>
 
     <p class="subtitle">
-      Elige el día, el tipo de reserva y consulta los horarios disponibles.
+      Consulta los servicios disponibles y sus horarios.
+      Para realizar una reserva, habla con nuestro asistente virtual.
     </p>
-
-    <div class="booking-fields">
-
-      <div class="form-group">
-        <label for="bookingDate">Fecha de la reserva *</label>
-        <input type="date" id="bookingDate" required>
-      </div>
-
-      <div class="form-group">
-        <label for="bookingType">Tipo de reserva *</label>
-        <select id="bookingType">
-          <option value="golf">Campo de golf</option>
-          <option value="practice">Campo de prácticas</option>
-        </select>
-      </div>
-
-    </div>
 
     <div class="booking-grid">
 
-      <div class="booking-option" id="golfOptions">
+      <div class="booking-option">
         <h3>⛳ Campo de golf</h3>
-        <p>Reserva una salida en franjas de 20 minutos. Puedes escoger un recorrido de 9 o 18 hoyos.</p>
 
-        <div class="form-group">
-          <label for="golfHoles">Número de hoyos</label>
-          <select id="golfHoles">
-            <option value="9">9 hoyos</option>
-            <option value="18">18 hoyos</option>
-          </select>
-        </div>
+        <p>
+          Se pueden reservar salidas para recorridos de
+          <strong>9 o 18 hoyos</strong>.
+          Las salidas se organizan en franjas de
+          <strong>20 minutos</strong>.
+        </p>
+
+        <p><strong>Ejemplo de horarios:</strong></p>
+
+        <p>09:00 · 09:20 · 09:40 · 10:00 · 10:20 · 10:40...</p>
       </div>
 
-      <div class="booking-option" id="practiceOptions">
+      <div class="booking-option">
         <h3>🏌️ Campo de prácticas</h3>
-        <p>Selecciona cuánto tiempo quieres utilizar la zona de prácticas.</p>
 
-        <div class="form-group">
-          <label for="practiceDuration">Duración</label>
-          <select id="practiceDuration">
-            <option value="1">1 hora</option>
-            <option value="2">2 horas</option>
-            <option value="3">3 horas</option>
-            <option value="4">4 horas</option>
-          </select>
-        </div>
+        <p>
+          Se puede reservar el campo de prácticas por diferentes
+          periodos de tiempo, según las necesidades de cada usuario.
+        </p>
+
+        <p><strong>Duraciones disponibles:</strong></p>
+
+        <p>1 hora · 2 horas · 3 horas · 4 horas</p>
       </div>
 
     </div>
 
-    <div class="form-group" style="margin-top:16px; max-width:420px;">
-      <label for="bookingTime">Hora de inicio disponible *</label>
-      <select id="bookingTime" required>
-        <option value="">Primero selecciona una fecha</option>
-      </select>
-    </div>
-
-    <!-- TABLA DE HORARIOS -->
     <div class="booking-table-wrap">
+
       <table class="booking-table">
+
         <thead>
           <tr>
             <th>Días de servicio</th>
-            <th>Horario</th>
-            <th>Intervalos de salida</th>
+            <th>Horario de apertura</th>
           </tr>
         </thead>
+
         <tbody>
           <tr>
             <td>Martes a sábado</td>
             <td>09:00 – 21:00</td>
-            <td>Cada 20 minutos</td>
           </tr>
+
           <tr>
             <td>Domingos y festivos</td>
             <td>09:00 – 20:00</td>
-            <td>Cada 20 minutos</td>
           </tr>
+
           <tr>
             <td>Lunes</td>
-            <td colspan="2">Cerrado</td>
+            <td>Cerrado</td>
           </tr>
         </tbody>
+
       </table>
+
     </div>
 
     <div class="booking-note">
-      <strong>Importante:</strong> Los horarios mostrados son horas de inicio.
-      Para el campo de prácticas, la duración seleccionada debe finalizar antes
-      del cierre. Los festivos entre semana tienen el horario de domingo;
-      marca la casilla si la fecha elegida es festiva.
+      <strong>¿Quieres reservar?</strong>
+      Indica al asistente virtual qué servicio necesitas,
+      la fecha, la hora que prefieres y, si corresponde,
+      el número de hoyos o la duración del campo de prácticas.
+      El asistente te ayudará a gestionar la solicitud de reserva.
     </div>
-
-    <div class="form-group" style="margin-top:12px;">
-      <label style="display:flex;align-items:center;gap:8px;font-weight:500;">
-        <input type="checkbox" id="isHoliday" style="width:auto;margin:0;">
-        La fecha seleccionada es festivo
-      </label>
-    </div>
-
-    <button class="primary-btn booking-submit" type="button" id="confirmBooking">
-      Confirmar selección
-    </button>
-
-    <div class="booking-status" id="bookingStatus" aria-live="polite"></div>
 
   </section>
 
@@ -784,8 +751,10 @@ footer {
 
 <script>
 
-// FORMULARIO DE CONTACTO
+// FORMULARIO DE RESERVA
+
 document.getElementById('reservationForm').addEventListener('submit', function(e) {
+
   e.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -799,10 +768,14 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
   );
 
   document.getElementById('chatMessage').focus();
+
 });
 
-// CHATBOT
+
+// AÑADIR MENSAJES AL CHAT
+
 function addMessage(text, user = false) {
+
   const messages = document.getElementById('messages');
 
   const message = document.createElement('div');
@@ -820,6 +793,7 @@ function addMessage(text, user = false) {
 
   const time = document.createElement('div');
   time.className = 'time';
+
   time.textContent = new Date().toLocaleTimeString('es-ES', {
     hour: '2-digit',
     minute: '2-digit'
@@ -827,6 +801,7 @@ function addMessage(text, user = false) {
 
   wrapper.appendChild(bubble);
   wrapper.appendChild(time);
+
   message.appendChild(avatar);
   message.appendChild(wrapper);
 
@@ -834,156 +809,165 @@ function addMessage(text, user = false) {
   messages.scrollTop = messages.scrollHeight;
 }
 
+
+// RESPUESTAS DEL CHATBOT
+
 function sendMessage() {
+
   const input = document.getElementById('chatMessage');
   const text = input.value.trim();
 
   if (!text) return;
 
   addMessage(text, true);
+
   input.value = '';
 
   setTimeout(() => {
+
     const msg = text.toLowerCase();
     let answer = '';
 
     if (msg.includes('hola') || msg.includes('buenas')) {
+
       answer = '¡Hola! Bienvenido a Las Encinas Club de Golf. ¿En qué puedo ayudarte?';
+
     } else if (msg.includes('reserva') || msg.includes('reservar')) {
-      answer = '¡Por supuesto! Para gestionar tu reserva necesito conocer la fecha, la hora y el número de jugadores.';
+
+      answer = '¡Por supuesto! Puedo ayudarte con la reserva. Dime si quieres jugar en el campo de golf (9 o 18 hoyos) o utilizar el campo de prácticas (1, 2, 3 o 4 horas), y después indícame la fecha y la hora que prefieres.';
+
     } else if (msg.includes('precio') || msg.includes('cuánto') || msg.includes('tarifa')) {
+
       answer = 'Estaremos encantados de informarte sobre nuestras tarifas. Para conocer los precios actualizados, contacta con nuestro equipo de recepción.';
+
     } else if (msg.includes('horario') || msg.includes('abierto')) {
+
       answer = 'Nuestro horario habitual es de martes a sábado de 9:00 a 21:00, y domingos y festivos de 9:00 a 20:00. Los lunes estamos cerrados.';
+
     } else if (msg.includes('jugadores')) {
+
       answer = 'Puedes realizar reservas para grupos de entre 1 y 4 jugadores desde el formulario.';
+
     } else if (msg.includes('gracias')) {
+
       answer = '¡Gracias a ti! Será un placer recibirte en Las Encinas Club de Golf.';
+
     } else {
-      answer = '¡Perfecto! Cuéntame un poco más y te ayudaré con tu reserva. También puedes rellenar el formulario de contacto para facilitarnos tus datos.';
+
+      answer = '¡Perfecto! Puedo orientarte sobre las reservas. Dime qué servicio quieres utilizar, la fecha y la hora que prefieres.';
+
     }
 
     addMessage(answer);
+
   }, 700);
+
 }
 
-// SELECTOR DE HORARIOS
-const bookingDate = document.getElementById('bookingDate');
-const bookingType = document.getElementById('bookingType');
-const bookingTime = document.getElementById('bookingTime');
-const practiceDuration = document.getElementById('practiceDuration');
-const isHoliday = document.getElementById('isHoliday');
-const bookingStatus = document.getElementById('bookingStatus');
 
-// Mostrar las opciones según el tipo de reserva
-function updateBookingOptions() {
-  const isPractice = bookingType.value === 'practice';
+// SONIDO DE GOLPE DE GOLF AL HACER CLIC
 
-  document.getElementById('golfOptions').style.display =
-    isPractice ? 'none' : 'block';
+(() => {
 
-  document.getElementById('practiceOptions').style.display =
-    isPractice ? 'block' : 'none';
+  let audioContext;
 
-  updateBookingTimes();
-}
+  function playGolfHit() {
 
-// Generar horarios cada 20 minutos
-function updateBookingTimes() {
-  bookingTime.innerHTML = '';
+    const AudioContextClass =
+      window.AudioContext || window.webkitAudioContext;
 
-  const selectedDate = bookingDate.value;
+    if (!AudioContextClass) return;
 
-  if (!selectedDate) {
-    bookingTime.add(new Option('Primero selecciona una fecha', ''));
-    return;
+    try {
+
+      if (!audioContext) {
+        audioContext = new AudioContextClass();
+      }
+
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      const now = audioContext.currentTime;
+
+      // IMPACTO GRAVE
+
+      const thump = audioContext.createOscillator();
+      const thumpGain = audioContext.createGain();
+
+      thump.type = 'sine';
+
+      thump.frequency.setValueAtTime(145, now);
+      thump.frequency.exponentialRampToValueAtTime(48, now + 0.11);
+
+      thumpGain.gain.setValueAtTime(0.0001, now);
+      thumpGain.gain.exponentialRampToValueAtTime(0.42, now + 0.006);
+      thumpGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+
+      thump.connect(thumpGain);
+      thumpGain.connect(audioContext.destination);
+
+      thump.start(now);
+      thump.stop(now + 0.15);
+
+
+      // CHASQUIDO DEL CONTACTO ENTRE EL PALO Y LA BOLA
+
+      const sampleRate = audioContext.sampleRate;
+
+      const buffer = audioContext.createBuffer(
+        1,
+        Math.floor(sampleRate * 0.12),
+        sampleRate
+      );
+
+      const data = buffer.getChannelData(0);
+
+      for (let i = 0; i < data.length; i++) {
+
+        data[i] = (Math.random() * 2 - 1) *
+          Math.pow(1 - i / data.length, 3);
+
+      }
+
+      const noise = audioContext.createBufferSource();
+      const filter = audioContext.createBiquadFilter();
+      const noiseGain = audioContext.createGain();
+
+      noise.buffer = buffer;
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(1700, now);
+      filter.Q.value = 0.8;
+
+      noiseGain.gain.setValueAtTime(0.0001, now);
+      noiseGain.gain.exponentialRampToValueAtTime(0.3, now + 0.003);
+      noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.09);
+
+      noise.connect(filter);
+      filter.connect(noiseGain);
+      noiseGain.connect(audioContext.destination);
+
+      noise.start(now);
+      noise.stop(now + 0.12);
+
+    } catch (error) {
+
+      console.warn('No se ha podido reproducir el sonido del golpe:', error);
+
+    }
+
   }
 
-  const day = new Date(selectedDate + 'T12:00:00').getDay();
+  // Reproducir el sonido al hacer clic.
+  // El navegador puede exigir un primer clic para activar el audio.
 
-  const isSundayOrHoliday = day === 0 || isHoliday.checked;
-  const isMonday = day === 1 && !isHoliday.checked;
+  document.addEventListener('click', playGolfHit);
 
-  if (isMonday) {
-    bookingTime.add(new Option('Cerrado los lunes', ''));
-    return;
-  }
-
-  const closingHour = isSundayOrHoliday ? 20 : 21;
-
-  const duration = bookingType.value === 'practice'
-    ? Number(practiceDuration.value)
-    : 0;
-
-  const latestStartMinutes = closingHour * 60 - duration * 60;
-
-  bookingTime.add(new Option('Selecciona una hora', ''));
-
-  for (let minutes = 9 * 60; minutes <= latestStartMinutes; minutes += 20) {
-    const hours = String(Math.floor(minutes / 60)).padStart(2, '0');
-    const mins = String(minutes % 60).padStart(2, '0');
-
-    const time = `${hours}:${mins}`;
-
-    bookingTime.add(new Option(time, time));
-  }
-
-  if (bookingTime.options.length === 1) {
-    bookingTime.innerHTML = '';
-    bookingTime.add(new Option('No hay horarios disponibles para esa duración', ''));
-  }
-}
-
-// Evitar fechas anteriores a hoy
-const today = new Date();
-const localToday = [
-  today.getFullYear(),
-  String(today.getMonth() + 1).padStart(2, '0'),
-  String(today.getDate()).padStart(2, '0')
-].join('-');
-
-bookingDate.min = localToday;
-
-// Actualizar horarios cuando cambien las opciones
-bookingDate.addEventListener('change', updateBookingTimes);
-bookingType.addEventListener('change', updateBookingOptions);
-practiceDuration.addEventListener('change', updateBookingTimes);
-isHoliday.addEventListener('change', updateBookingTimes);
-
-updateBookingOptions();
-
-// CONFIRMAR RESERVA
-document.getElementById('confirmBooking').addEventListener('click', function() {
-
-  if (!bookingDate.value || !bookingTime.value) {
-    bookingStatus.textContent = 'Selecciona una fecha y una hora disponible.';
-    return;
-  }
-
-  const dateText = new Date(
-    bookingDate.value + 'T12:00:00'
-  ).toLocaleDateString('es-ES');
-
-  let detail;
-
-  if (bookingType.value === 'golf') {
-    detail = `Campo de golf, ${document.getElementById('golfHoles').value} hoyos`;
-  } else {
-    const hours = practiceDuration.value;
-
-    detail = `Campo de prácticas, ${hours} ${hours === '1' ? 'hora' : 'horas'}`;
-  }
-
-  bookingStatus.textContent =
-    `Selección realizada: ${detail}, el ${dateText} a las ${bookingTime.value}. Para completar la reserva, contacta con recepción.`;
-
-  addMessage(
-    `Quiero reservar: ${detail}, el ${dateText} a las ${bookingTime.value}.`
-  );
-
-});
+})();
 
 </script>
 
 </body>
 </html>
+
