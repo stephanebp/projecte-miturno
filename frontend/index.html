@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,14 +31,13 @@ body {
 }
 
 /* HEADER */
-
 header {
-  height: 68px;
+  min-height: 68px;
   background: rgba(255,255,255,.97);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 5%;
+  padding: 10px 5%;
   position: relative;
   z-index: 5;
   box-shadow: 0 2px 12px #0000000c;
@@ -72,7 +72,6 @@ header {
 nav {
   display: flex;
   gap: 35px;
-  height: 100%;
   align-items: center;
 }
 
@@ -104,7 +103,6 @@ nav a.active {
 }
 
 /* HERO */
-
 .hero {
   height: 195px;
   background:
@@ -124,7 +122,6 @@ nav a.active {
 }
 
 /* MAIN */
-
 main {
   max-width: 1250px;
   margin: -45px auto 40px;
@@ -140,7 +137,6 @@ main {
 }
 
 /* PANELS */
-
 .panel {
   background: rgba(255,255,255,.97);
   border: 1px solid var(--border);
@@ -180,7 +176,6 @@ main {
 }
 
 /* FORM */
-
 .form-group {
   margin-bottom: 13px;
 }
@@ -239,7 +234,6 @@ textarea {
 }
 
 /* CHAT */
-
 .chat-panel {
   display: flex;
   flex-direction: column;
@@ -369,6 +363,102 @@ textarea {
   background: var(--dark-green);
 }
 
+/* RESERVAS */
+.booking-panel {
+  margin-top: 18px;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.booking-option {
+  background: #f8faf8;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 17px;
+  min-width: 0;
+}
+
+.booking-option h3 {
+  font-size: 13px;
+  color: var(--dark-green);
+  margin-bottom: 7px;
+}
+
+.booking-option p {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 13px;
+}
+
+.booking-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.booking-fields .form-group {
+  margin-bottom: 12px;
+}
+
+.booking-table-wrap {
+  overflow-x: auto;
+  margin-top: 18px;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.booking-table th, .booking-table td {
+  padding: 11px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.booking-table th {
+  color: var(--dark-green);
+  background: var(--light-green);
+  font-weight: 700;
+}
+
+.booking-table td {
+  background: white;
+}
+
+.booking-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.booking-note {
+  margin-top: 12px;
+  padding: 11px 13px;
+  background: var(--light-green);
+  border-radius: 7px;
+  color: var(--dark-green);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.booking-submit {
+  margin-top: 15px;
+}
+
+.booking-status {
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  min-height: 16px;
+}
+
 footer {
   text-align: center;
   padding: 20px;
@@ -377,10 +467,9 @@ footer {
 }
 
 /* RESPONSIVE */
-
 @media(max-width: 800px) {
   header {
-    padding: 0 18px;
+    padding: 10px 18px;
   }
 
   nav {
@@ -403,6 +492,10 @@ footer {
   .hero {
     height: 160px;
   }
+
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media(max-width: 450px) {
@@ -424,6 +517,14 @@ footer {
 
   .panel {
     padding: 17px;
+  }
+
+  .booking-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-table th, .booking-table td {
+    padding: 9px 8px;
   }
 }
 </style>
@@ -451,7 +552,7 @@ footer {
     <div class="hours-icon">◷</div>
     <div>
       <strong>Horario de apertura</strong><br>
-      Martes a sábado: 9:00 - 20:00<br>
+      Martes a sábado: 9:00 - 21:00<br>
       Domingos y festivos: 9:00 - 20:00
     </div>
   </div>
@@ -462,6 +563,7 @@ footer {
 </section>
 
 <main>
+
   <div class="content">
 
     <!-- FORMULARIO -->
@@ -480,20 +582,17 @@ footer {
 
         <div class="form-group">
           <label>Nombre completo *</label>
-          <input id="name" type="text"
-            placeholder="Ej. Juan Pérez" required>
+          <input id="name" type="text" placeholder="Ej. Juan Pérez" required>
         </div>
 
         <div class="form-group">
           <label>Teléfono *</label>
-          <input id="phone" type="tel"
-            placeholder="Ej. 600 123 456" required>
+          <input id="phone" type="tel" placeholder="Ej. 600 123 456" required>
         </div>
 
         <div class="form-group">
           <label>Correo electrónico *</label>
-          <input id="email" type="email"
-            placeholder="Ej. juan@correo.com" required>
+          <input id="email" type="email" placeholder="Ej. juan@correo.com" required>
         </div>
 
         <div class="form-group">
@@ -508,8 +607,7 @@ footer {
 
         <div class="form-group">
           <label>Mensaje (opcional)</label>
-          <textarea id="notes"
-            placeholder="Indica cualquier preferencia o comentario..."></textarea>
+          <textarea id="notes" placeholder="Indica cualquier preferencia o comentario..."></textarea>
         </div>
 
         <button class="primary-btn" type="submit">
@@ -534,7 +632,6 @@ footer {
       </div>
 
       <div class="messages" id="messages">
-
         <div class="message">
           <div class="message-avatar">🤖</div>
           <div>
@@ -546,7 +643,6 @@ footer {
             <div class="time">Ahora</div>
           </div>
         </div>
-
       </div>
 
       <div class="chat-input">
@@ -554,14 +650,132 @@ footer {
           placeholder="Escribe tu mensaje..."
           onkeydown="if(event.key==='Enter')sendMessage()">
 
-        <button class="send-btn" onclick="sendMessage()">
-          ➤
-        </button>
+        <button class="send-btn" onclick="sendMessage()">➤</button>
       </div>
 
     </section>
 
   </div>
+
+  <!-- APARTADO DE RESERVAS -->
+  <section class="panel booking-panel" id="horarios-reserva">
+
+    <div class="panel-header">
+      <div class="panel-icon">📅</div>
+      <h2>Selecciona tu reserva</h2>
+    </div>
+
+    <p class="subtitle">
+      Elige el día, el tipo de reserva y consulta los horarios disponibles.
+    </p>
+
+    <div class="booking-fields">
+
+      <div class="form-group">
+        <label for="bookingDate">Fecha de la reserva *</label>
+        <input type="date" id="bookingDate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bookingType">Tipo de reserva *</label>
+        <select id="bookingType">
+          <option value="golf">Campo de golf</option>
+          <option value="practice">Campo de prácticas</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="booking-grid">
+
+      <div class="booking-option" id="golfOptions">
+        <h3>⛳ Campo de golf</h3>
+        <p>Reserva una salida en franjas de 20 minutos. Puedes escoger un recorrido de 9 o 18 hoyos.</p>
+
+        <div class="form-group">
+          <label for="golfHoles">Número de hoyos</label>
+          <select id="golfHoles">
+            <option value="9">9 hoyos</option>
+            <option value="18">18 hoyos</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="booking-option" id="practiceOptions">
+        <h3>🏌️ Campo de prácticas</h3>
+        <p>Selecciona cuánto tiempo quieres utilizar la zona de prácticas.</p>
+
+        <div class="form-group">
+          <label for="practiceDuration">Duración</label>
+          <select id="practiceDuration">
+            <option value="1">1 hora</option>
+            <option value="2">2 horas</option>
+            <option value="3">3 horas</option>
+            <option value="4">4 horas</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group" style="margin-top:16px; max-width:420px;">
+      <label for="bookingTime">Hora de inicio disponible *</label>
+      <select id="bookingTime" required>
+        <option value="">Primero selecciona una fecha</option>
+      </select>
+    </div>
+
+    <!-- TABLA DE HORARIOS -->
+    <div class="booking-table-wrap">
+      <table class="booking-table">
+        <thead>
+          <tr>
+            <th>Días de servicio</th>
+            <th>Horario</th>
+            <th>Intervalos de salida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Martes a sábado</td>
+            <td>09:00 – 21:00</td>
+            <td>Cada 20 minutos</td>
+          </tr>
+          <tr>
+            <td>Domingos y festivos</td>
+            <td>09:00 – 20:00</td>
+            <td>Cada 20 minutos</td>
+          </tr>
+          <tr>
+            <td>Lunes</td>
+            <td colspan="2">Cerrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="booking-note">
+      <strong>Importante:</strong> Los horarios mostrados son horas de inicio.
+      Para el campo de prácticas, la duración seleccionada debe finalizar antes
+      del cierre. Los festivos entre semana tienen el horario de domingo;
+      marca la casilla si la fecha elegida es festiva.
+    </div>
+
+    <div class="form-group" style="margin-top:12px;">
+      <label style="display:flex;align-items:center;gap:8px;font-weight:500;">
+        <input type="checkbox" id="isHoliday" style="width:auto;margin:0;">
+        La fecha seleccionada es festivo
+      </label>
+    </div>
+
+    <button class="primary-btn booking-submit" type="button" id="confirmBooking">
+      Confirmar selección
+    </button>
+
+    <div class="booking-status" id="bookingStatus" aria-live="polite"></div>
+
+  </section>
+
 </main>
 
 <footer>
@@ -570,10 +784,8 @@ footer {
 
 <script>
 
-// FORMULARIO DE RESERVA
-
-document.getElementById('reservationForm')
-.addEventListener('submit', function(e) {
+// FORMULARIO DE CONTACTO
+document.getElementById('reservationForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -589,8 +801,7 @@ document.getElementById('reservationForm')
   document.getElementById('chatMessage').focus();
 });
 
-// CHAT
-
+// CHATBOT
 function addMessage(text, user = false) {
   const messages = document.getElementById('messages');
 
@@ -602,6 +813,7 @@ function addMessage(text, user = false) {
   avatar.textContent = user ? '👤' : '🤖';
 
   const wrapper = document.createElement('div');
+
   const bubble = document.createElement('div');
   bubble.className = 'bubble';
   bubble.textContent = text;
@@ -642,7 +854,7 @@ function sendMessage() {
     } else if (msg.includes('precio') || msg.includes('cuánto') || msg.includes('tarifa')) {
       answer = 'Estaremos encantados de informarte sobre nuestras tarifas. Para conocer los precios actualizados, contacta con nuestro equipo de recepción.';
     } else if (msg.includes('horario') || msg.includes('abierto')) {
-      answer = 'Nuestro horario habitual es de martes a sábado de 9:00 a 20:00, y domingos y festivos de 9:00 a 20:00.';
+      answer = 'Nuestro horario habitual es de martes a sábado de 9:00 a 21:00, y domingos y festivos de 9:00 a 20:00. Los lunes estamos cerrados.';
     } else if (msg.includes('jugadores')) {
       answer = 'Puedes realizar reservas para grupos de entre 1 y 4 jugadores desde el formulario.';
     } else if (msg.includes('gracias')) {
@@ -654,6 +866,122 @@ function sendMessage() {
     addMessage(answer);
   }, 700);
 }
+
+// SELECTOR DE HORARIOS
+const bookingDate = document.getElementById('bookingDate');
+const bookingType = document.getElementById('bookingType');
+const bookingTime = document.getElementById('bookingTime');
+const practiceDuration = document.getElementById('practiceDuration');
+const isHoliday = document.getElementById('isHoliday');
+const bookingStatus = document.getElementById('bookingStatus');
+
+// Mostrar las opciones según el tipo de reserva
+function updateBookingOptions() {
+  const isPractice = bookingType.value === 'practice';
+
+  document.getElementById('golfOptions').style.display =
+    isPractice ? 'none' : 'block';
+
+  document.getElementById('practiceOptions').style.display =
+    isPractice ? 'block' : 'none';
+
+  updateBookingTimes();
+}
+
+// Generar horarios cada 20 minutos
+function updateBookingTimes() {
+  bookingTime.innerHTML = '';
+
+  const selectedDate = bookingDate.value;
+
+  if (!selectedDate) {
+    bookingTime.add(new Option('Primero selecciona una fecha', ''));
+    return;
+  }
+
+  const day = new Date(selectedDate + 'T12:00:00').getDay();
+
+  const isSundayOrHoliday = day === 0 || isHoliday.checked;
+  const isMonday = day === 1 && !isHoliday.checked;
+
+  if (isMonday) {
+    bookingTime.add(new Option('Cerrado los lunes', ''));
+    return;
+  }
+
+  const closingHour = isSundayOrHoliday ? 20 : 21;
+
+  const duration = bookingType.value === 'practice'
+    ? Number(practiceDuration.value)
+    : 0;
+
+  const latestStartMinutes = closingHour * 60 - duration * 60;
+
+  bookingTime.add(new Option('Selecciona una hora', ''));
+
+  for (let minutes = 9 * 60; minutes <= latestStartMinutes; minutes += 20) {
+    const hours = String(Math.floor(minutes / 60)).padStart(2, '0');
+    const mins = String(minutes % 60).padStart(2, '0');
+
+    const time = `${hours}:${mins}`;
+
+    bookingTime.add(new Option(time, time));
+  }
+
+  if (bookingTime.options.length === 1) {
+    bookingTime.innerHTML = '';
+    bookingTime.add(new Option('No hay horarios disponibles para esa duración', ''));
+  }
+}
+
+// Evitar fechas anteriores a hoy
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, '0'),
+  String(today.getDate()).padStart(2, '0')
+].join('-');
+
+bookingDate.min = localToday;
+
+// Actualizar horarios cuando cambien las opciones
+bookingDate.addEventListener('change', updateBookingTimes);
+bookingType.addEventListener('change', updateBookingOptions);
+practiceDuration.addEventListener('change', updateBookingTimes);
+isHoliday.addEventListener('change', updateBookingTimes);
+
+updateBookingOptions();
+
+// CONFIRMAR RESERVA
+document.getElementById('confirmBooking').addEventListener('click', function() {
+
+  if (!bookingDate.value || !bookingTime.value) {
+    bookingStatus.textContent = 'Selecciona una fecha y una hora disponible.';
+    return;
+  }
+
+  const dateText = new Date(
+    bookingDate.value + 'T12:00:00'
+  ).toLocaleDateString('es-ES');
+
+  let detail;
+
+  if (bookingType.value === 'golf') {
+    detail = `Campo de golf, ${document.getElementById('golfHoles').value} hoyos`;
+  } else {
+    const hours = practiceDuration.value;
+
+    detail = `Campo de prácticas, ${hours} ${hours === '1' ? 'hora' : 'horas'}`;
+  }
+
+  bookingStatus.textContent =
+    `Selección realizada: ${detail}, el ${dateText} a las ${bookingTime.value}. Para completar la reserva, contacta con recepción.`;
+
+  addMessage(
+    `Quiero reservar: ${detail}, el ${dateText} a las ${bookingTime.value}.`
+  );
+
+});
 
 </script>
 
